@@ -28,22 +28,20 @@ The main folders and files are:
 ```text
 .
 ├── data/                 # Input data (AIDev subset or preprocessed CSVs)
-│   ├── README.md         # Brief note on where the data come from / how to obtain
-│   └── ...
+│   ├── pr_rq1.csv        
+│   └── pr_rq2.csv
 ├── scripts/              # Reproducible analysis code
-│   ├── 01_rq1.ipynb   
-│   ├── 02_rq2.ipynb      # aggregate work types and size metrics
-│   └── 03_rq3.ipynb           
-├── figs/                 # Output figures used in the report
+│   ├── RQ1.ipynb   
+│   ├── RQ2.ipynb      # aggregate work types and size metrics
+│   └── RQ3.ipynb           
+├── plots/                 # Output figures used in the report
 │   ├── rq2_task_type_hbar.png
 │   ├── rq2_lines_changed_box.png
 │   ├── rq2_n_files_box.png
 │   └── rq2_n_commits_box.png
-├── report/               # LaTeX source and compiled PDF for the milestone report
-│   ├── main.tex
-│   └── milestone2.pdf
-├── env/                  # (optional) environment files
-│   └── environment.yml   # or requirements.txt
+├── report/               # LaTeX source and compiled PDF for the report
+│   ├── Milestone 1_group22.pdf
+│   └── Milestone 2_group22.pdf
 ├── .gitignore
 └── README.md             # This file
 ```
@@ -63,3 +61,80 @@ Then start JupyterLab:
 jupyter lab
 ```
 Open the notebooks in the scripts/ folder and run the cells in order.
+
+
+## How to run the analysis
+
+We provide two ways to run the project: a lightweight mode that only uses the
+aggregated CSV files in this repository, and a full mode that rebuilds these
+aggregates from the original AIDev tables.
+
+### Option 1 – Reproduce our results using the aggregated CSVs (recommended)
+
+This option does **not** require downloading the full AIDev dataset. You only
+need the two pre-computed CSV files already stored in `data/`:
+
+- `data/[pr_rq1].csv`  
+  PR-level interaction labels (RQ1). One row per PR, including:
+  - `pr_id`
+  - the human–interaction level (e.g., 0 = fully automated, 1 = human review only, 2 = human commits)
+  - basic PR metadata used in our RQ1 summaries
+
+- `data/[pr_rq2].csv`  
+  PR-level summary for RQ2. One row per PR, including:
+  - `pr_id`
+  - `level` (same interaction levels as RQ1)
+  - `task_type` (feat/fix/docs/refactor/test/other)
+  - `n_commits`
+  - `n_files`
+  - `lines_changed`
+
+Steps:
+
+1. **Clone this repository**
+
+    git clone https://github.com/phanguy30/AI-PRs-Autonomy.git
+    cd AI-PRs-Autonomy
+
+2. **Data used in this project**
+
+   The raw AIDev tables are too large to include in this repo. For our analyses
+   we use two aggregated PR-level CSV files stored in `data/`:
+
+   - `data/pr_rq1.csv` – PR-level interaction labels for **RQ1**  
+     (one row per PR, including `pr_id` and the interaction level:
+     0 = fully automated, 1 = human review only, 2 = human commits).
+
+   - `data/pr_rq2.csv` – PR-level summary for **RQ2**  
+     (one row per PR, including `pr_id`, `level`, `task_type`,
+     `n_commits`, `n_files`, and `lines_changed`).
+
+   If you want to rebuild these aggregated files yourself, you can download the
+   original AIDev tables (for example:
+   `pull_request.parquet`, `pr_comments.parquet`, `pr_reviews.parquet`,
+   `pr_commits.parquet`, `pr_commit_details.parquet`, `pr_task_type.parquet`)
+   from the official AIDev dataset and place them in the `data/` folder, then
+   follow the preparation notebooks.
+
+3. **Run the notebooks**
+
+   After the environment is ready and the CSV files are in `data/`, start
+   Jupyter and open the notebooks in the `notebooks/` folder (or the
+   corresponding scripts), for example:
+
+   - `notebooks/RQ1.ipynb` – uses `data/pr_rq1.csv` to produce the
+     RQ1 summaries and figures.
+   - `notebooks/RQ2.ipynb` – uses `data/pr_rq2.csv` to
+     produce the RQ2 figures (task-type bar chart and size/complexity boxplots).
+   - `notebooks/RQ3.ipynb` (optional / future work) – compares
+     agents using the same aggregated data.
+
+   Run all cells in each notebook to reproduce the analyses and figures used in
+   the report.
+
+
+
+
+
+
+
