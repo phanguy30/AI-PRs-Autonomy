@@ -46,3 +46,20 @@ The main folders and files are:
 │   └── environment.yml   # or requirements.txt
 ├── .gitignore
 └── README.md             # This file
+```
+
+## Environment setup
+
+We run our analysis in Python 3, JupyterLab, and the main packages we use
+(pandas, numpy, matplotlib, ...).
+
+If you want to run the notebooks locally, you can create a simple environment
+with pip:
+```bash
+pip install pandas numpy matplotlib seaborn
+```
+Then start JupyterLab:
+```bash
+jupyter lab
+```
+Open the notebooks in the scripts/ folder and run the cells in order.
