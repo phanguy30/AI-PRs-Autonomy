@@ -122,11 +122,11 @@ Steps:
    Jupyter and open the notebooks in the `notebooks/` folder (or the
    corresponding scripts), for example:
 
-   - `notebooks/RQ1.ipynb` – uses `data/pr_rq1.csv` to produce the
+   - `scripts/RQ1.ipynb` – uses `data/pr_rq1.csv` to produce the
      RQ1 summaries and figures.
-   - `notebooks/RQ2.ipynb` – uses `data/pr_rq2.csv` to
+   - `scripts/RQ2.ipynb` – uses `data/pr_rq2.csv` to
      produce the RQ2 figures (task-type bar chart and size/complexity boxplots).
-   - `notebooks/RQ3.ipynb` (optional / future work) – compares
+   - `scripts/RQ3.ipynb` (optional / future work) – compares
      agents using the same aggregated data.
 
    Run all cells in each notebook to reproduce the analyses and figures used in
