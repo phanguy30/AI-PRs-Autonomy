@@ -120,33 +120,53 @@ Steps:
      (one row per interaction level, including `level`, `n_pr`, `accept_rate`,
      `median_turnaround_hours`, `p25_turnaround_hours`, and `p75_turnaround_hours`).
 
-    If you want to rebuild the aggregated files:
+### Option 2 – Rebuild all aggregates from the raw AIDev dataset
 
-    1. Download the original AIDev tables from the official Hugging Face dataset:  
-   https://huggingface.co/datasets/hao-li/AIDev  
-   (files: `pull_request.parquet`, `pr_comments.parquet`, `pr_reviews.parquet`,  
-   `pr_commits.parquet`, `pr_commit_details.parquet`, `pr_task_type.parquet`)
+Use this mode if you want to inspect or regenerate every intermediate table used
+in our analysis.
 
-    2. Place all downloaded files into the `data/` directory.
+#### 1. Download the raw AIDev tables
 
-    3. Run the preparation notebooks to regenerate the aggregated outputs.
+Download the dataset from Hugging Face:
 
-     
+https://huggingface.co/datasets/hao-li/AIDev
 
-3. **Run the notebooks**
+Required files:
 
-   After the environment is ready and the CSV files are in `data/`, start
-   Jupyter and open the notebooks in the `notebooks/` folder (or the
-   corresponding scripts), for example:
+- `pull_request.parquet`
+- `pr_comments.parquet`
+- `pr_reviews.parquet`
+- `pr_commits.parquet`
+- `pr_commit_details.parquet`
+- `pr_task_type.parquet`
 
-   - `scripts/RQ1.ipynb` – uses `data/pr_rq1.csv` to produce the
-     RQ1 summaries and figures.
-   - `scripts/RQ2.ipynb` – uses `data/pr_rq2.csv` to
-     produce the RQ2 figures (task-type bar chart and size/complexity boxplots).
-   - `scripts/RQ3.ipynb` – uses `data/pr_rq2.csv` to compute the RQ3 summary table
-  (acceptance rate and turnaround time by interaction level) and generate the RQ3 plots.
+Place all these files into the `data/` directory.
 
-Run all cells in each notebook to reproduce the analyses and figures used in the report.
+#### 2. Run the preparation notebooks
+
+Execute the notebooks in `notebooks/preparation/` (or the equivalent Python scripts):
+
+- `01_build_pr_level_table.ipynb`  
+  Constructs the PR-level interaction table used in **RQ1**.
+
+- `02_build_rq2_features.ipynb`  
+  Computes task type, commit stats, file counts, and line-change metrics for **RQ2**.
+
+- `03_build_rq3_metrics.ipynb`  
+  Aggregates acceptance rate and turnaround statistics for **RQ3**.
+
+These notebooks will output:
+
+- `data/pr_rq1.csv`
+- `data/pr_rq2.csv`
+- `data/pr_rq3.csv`
+
+#### 3. Proceed with the analysis notebooks
+
+Once the aggregates are rebuilt, follow the same steps as in **Option 1** to run:
+- `scripts/RQ1.ipynb`
+- `scripts/RQ2.ipynb`
+- `scripts/RQ3.ipynb`
 
 
 
