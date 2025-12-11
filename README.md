@@ -63,15 +63,15 @@ One row per pull request, containing:
 - `pr_id`
 - `level` — same automation categories as RQ1
 - `task_type` — feat / fix / docs / refactor / test / other
-- `n_commits`
-- `n_files`
-- `lines_changed`
+- `n_commits` - number of commits related to this PR
+- `n_files` - number of files changed
+- `lines_changed`- number of lines of codes changed
 
 ### `data/pr_rq3.csv` — Outcomes by Interaction Level (RQ3)
 One row per interaction level (0, 1, 2), summarizing:
 - `level`
 - `n_pr` — number of PRs
-- `accept_rate`
+- `accept_rate` 
 - `median_turnaround_hours`
 - `p25_turnaround_hours`
 - `p75_turnaround_hours`
