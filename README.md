@@ -1,7 +1,6 @@
 # Agentic Pull Requests: Automation and Human Interaction 
 
-This repository contains our analysis on the AIDev / Agentic Pull Requests
-dataset. https://huggingface.co/datasets/hao-li/AIDev
+This repository contains our analysis of the [AIDev / Agentic Pull Requests dataset](https://huggingface.co/datasets/hao-li/AIDev).
 
 The overall goal is to understand **when AI coding agents can handle pull
 requests (PRs) fully automatically** and **when human participation is still needed**.
