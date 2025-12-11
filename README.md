@@ -10,11 +10,11 @@ In the full project we plan to answer three research questions (RQs):
   To what extent are PRs fully automated (all commits by bots and no human review)
   versus requiring human participation?
 
-- **RQ2 – Work type and complexity (this milestone):**  
+- **RQ2 – Work type and complexity:**  
   What types of work and what levels of PR size/complexity correspond to fully
   automated PRs compared to those that involve humans?
 
-- **RQ3 – Bot-level differences (future work):**  
+- **RQ3 – Bot-level differences:**  
   Which bots generate PRs that require the most human feedback or corrections?
 
 This repository mainly supports **RQ2** for the current milestone report.
@@ -28,20 +28,19 @@ The main folders and files are:
 ```text
 .
 ├── data/                 # Input data (AIDev subset or preprocessed CSVs)
-│   ├── pr_rq1.csv        
-│   └── pr_rq2.csv
+│   ├── pr_rq1.csv
+│   ├── pr_rq2.csv        
+│   └── pr_rq3.csv
 ├── scripts/              # Reproducible analysis code
 │   ├── RQ1.ipynb   
 │   ├── RQ2.ipynb      # aggregate work types and size metrics
 │   └── RQ3.ipynb           
 ├── plots/                 # Output figures used in the report
-│   ├── rq2_task_type_hbar.png
-│   ├── rq2_lines_changed_box.png
-│   ├── rq2_n_files_box.png
-│   └── rq2_n_commits_box.png
+│   
 ├── report/               # LaTeX source and compiled PDF for the report
-│   ├── Milestone 1_group22.pdf
-│   └── Milestone 2_group22.pdf
+│   ├──Milestone 1_group22.pdf
+├── ├──Milestone 2_group22.pdf
+│   └──Milestone 3_group22.pdf
 ├── .gitignore
 └── README.md             # This file
 ```
@@ -126,8 +125,7 @@ Steps:
      RQ1 summaries and figures.
    - `scripts/RQ2.ipynb` – uses `data/pr_rq2.csv` to
      produce the RQ2 figures (task-type bar chart and size/complexity boxplots).
-   - `scripts/RQ3.ipynb` (optional / future work) – compares
-     agents using the same aggregated data.
+   - `scripts/RQ3.ipynb` – compares agents using the same aggregated data.
 
    Run all cells in each notebook to reproduce the analyses and figures used in
    the report.
