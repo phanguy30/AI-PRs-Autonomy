@@ -1,6 +1,6 @@
 # Agentic Pull Requests: Automation and Human Interaction 
 
-This repository contains our course project for the AIDev / Agentic Pull Requests
+This repository contains our analysis on the AIDev / Agentic Pull Requests
 dataset. The overall goal is to understand **when AI coding agents can handle pull
 requests (PRs) fully automatically** and **when human participation is still needed**.
 
