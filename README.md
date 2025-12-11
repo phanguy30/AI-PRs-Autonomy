@@ -88,6 +88,16 @@ need the two pre-computed CSV files already stored in `data/`:
   - `n_files`
   - `lines_changed`
 
+- `data/[pr_rq3].csv`  
+  RQ3 summary by interaction level. One row per interaction level (0, 1, 2), including:
+  - `level`
+  - `n_pr`
+  - `accept_rate`
+  - `median_turnaround_hours`
+  - `p25_turnaround_hours`
+  - `p75_turnaround_hours`
+
+
 Steps:
 
 1. **Clone this repository**
@@ -108,6 +118,10 @@ Steps:
      (one row per PR, including `pr_id`, `level`, `task_type`,
      `n_commits`, `n_files`, and `lines_changed`).
 
+   - `data/pr_rq3.csv` – RQ3 summary by interaction level  
+     (one row per interaction level, including `level`, `n_pr`, `accept_rate`,
+     `median_turnaround_hours`, `p25_turnaround_hours`, and `p75_turnaround_hours`).
+
    If you want to rebuild these aggregated files yourself, you can download the
    original AIDev tables (for example:
    `pull_request.parquet`, `pr_comments.parquet`, `pr_reviews.parquet`,
@@ -125,10 +139,10 @@ Steps:
      RQ1 summaries and figures.
    - `scripts/RQ2.ipynb` – uses `data/pr_rq2.csv` to
      produce the RQ2 figures (task-type bar chart and size/complexity boxplots).
-   - `scripts/RQ3.ipynb` – compares agents using the same aggregated data.
+   - `scripts/RQ3.ipynb` – uses `data/pr_rq2.csv` to compute the RQ3 summary table
+  (acceptance rate and turnaround time by interaction level) and generate the RQ3 plots.
 
-   Run all cells in each notebook to reproduce the analyses and figures used in
-   the report.
+Run all cells in each notebook to reproduce the analyses and figures used in the report.
 
 
 
