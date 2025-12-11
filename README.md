@@ -17,8 +17,6 @@ In the full project we plan to answer three research questions (RQs):
 - **RQ3 – Bot-level differences:**  
   Which bots generate PRs that require the most human feedback or corrections?
 
-This repository mainly supports **RQ2** for the current milestone report.
-
 ---
 
 ## Repository structure
@@ -122,12 +120,18 @@ Steps:
      (one row per interaction level, including `level`, `n_pr`, `accept_rate`,
      `median_turnaround_hours`, `p25_turnaround_hours`, and `p75_turnaround_hours`).
 
-   If you want to rebuild these aggregated files yourself, you can download the
-   original AIDev tables (for example:
-   `pull_request.parquet`, `pr_comments.parquet`, `pr_reviews.parquet`,
+    If you want to rebuild the aggregated files:
+
+    1. Download the original AIDev tables from the official Hugging Face dataset:  
+   https://huggingface.co/datasets/hao-li/AIDev  
+   (files: `pull_request.parquet`, `pr_comments.parquet`, `pr_reviews.parquet`,  
    `pr_commits.parquet`, `pr_commit_details.parquet`, `pr_task_type.parquet`)
-   from the official AIDev dataset and place them in the `data/` folder, then
-   follow the preparation notebooks.
+
+    2. Place all downloaded files into the `data/` directory.
+
+    3. Run the preparation notebooks to regenerate the aggregated outputs.
+
+     
 
 3. **Run the notebooks**
 
