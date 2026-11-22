@@ -35,7 +35,7 @@ The raw AIDev tables (`pull_request`, `pr_reviews`, `pr_comments`, `pr_commits`,
 ```
 data/       derived CSVs (raw AIDev tables are not tracked)
 scripts/    RQ1.ipynb (involvement levels), RQ2.ipynb (work type and size), RQ3.ipynb (acceptance and turnaround)
-reports/    written project reports
+reports/    Final_Report.pdf (full written report)
 ```
 
 ## Reproduce
